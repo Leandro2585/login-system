@@ -1,0 +1,41 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 60vw;
+    height: 80vh;
+    background: #f2f2f5;
+    margin: 0 auto;
+    padding: 50px;
+    text-align: center; 
+  }
+  .container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+  .container form input, 
+  .container form button {
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 15px;
+    margin: 10px 0;
+  }
+</style>
+<div class="container">
+  <h1>Sign In</h1>
+
+  <form action="/session" method="post">
+    
+    <label>E-mail</label>
+    <input required type="email" name="email" id="email">
+    <label>Password</label>
+    <input required type="password" name="password" id="password">
+    
+    <button type="submit">Login</button>
+  </form>
+  <a href="http://localhost:3333/signup">Sign Up</a>
+</div>

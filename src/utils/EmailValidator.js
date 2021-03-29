@@ -1,7 +1,9 @@
-import validator from 'validator'
+const validator = require('validator')
 
-export default class EmailValidator {
-  isValid(email) {
+const EmailValidator = {
+  isValid (email) {
     return validator.isEmail(email)
   }
 }
+
+module.exports = EmailValidator

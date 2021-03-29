@@ -1,16 +1,19 @@
-import { ServerError } from '../errors'
+const { ServerError } = require('../errors')
 
-export const badRequest = (error) => ({
-  statusCode: 400,
-  body: error
-})
+const badRequest = (response, error) => {
+  return response.status(400).json(error)
+}
 
-export const serverError = () => ({
-  statusCode: 500,
-  body: new ServerError()
-})
+const serverError = (response) => {
+  return response.status(500).json(new ServerError())
+}
 
-export const ok = (data) => ({
-  statusCode: 200,
-  body: data
-})
+const ok = (response, data) => {
+  return response.status(200).json(data)
+}
+
+module.exports = {
+  ok,
+  badRequest,
+  serverError
+}

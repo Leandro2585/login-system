@@ -1,16 +1,29 @@
-import { getRepository } from "typeorm"
-import User from "../entities/User"
+const connection = require('../database/connection')
 
-class UsersRepository {
-  constructor () {
-    this.ormRepository = getRepository(User)
-  }
-  async create (name, email, password) {
-  
-  }
-  async findByEmail(email) {
+const UsersRepository = {
+  async create ({ id, name, email, password }) {
+    await connection('user').insert({
+      id,
+      name,
+      email,
+      password
+    })
 
+    const user = await connection('user')
+      .where('id', id)
+      .select('*')
+      .first()
+
+    return user
+  },
+  async findByEmail (email) {
+    const user = await connection('user')
+      .where('email', email)
+      .select('*')
+      .first()
+
+    return user || undefined
   }
 }
 
-export default UsersRepository
+module.exports = UsersRepository
