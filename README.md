@@ -24,13 +24,15 @@
 
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
- <a href="#-como-excutar-o-projeto">Como executar</a> • 
+ <a href="#-como-excutar-o-projeto">Como executar o projeto</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
+</p>
+<br/>
+<p align="center">
  <a href="#-como-contribuir-com-esse-projeto">Como contribuir com esse projeto</a> • 
  <a href="#-autor">Autor</a> • 
  <a href="#user-content--licence">Licence</a>
 </p>
-
 
 ## 💻 Sobre o projeto
 
