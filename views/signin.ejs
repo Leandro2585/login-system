@@ -24,18 +24,52 @@
     padding: 15px;
     margin: 10px 0;
   }
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  }
+  td {
+    width: auto;
+    word-break: break-word;
+  }
 </style>
+
 <div class="container">
   <h1>Sign In</h1>
 
-  <form action="/session" method="post">
+  <form name="formRef" method="post" action="session">
     
     <label>E-mail</label>
     <input required type="email" name="email" id="email">
     <label>Password</label>
     <input required type="password" name="password" id="password">
     
-    <button type="submit">Login</button>
+    <button type="submit">
+      Login
+    </button>
   </form>
+  <div id="box"></div>
   <a href="http://localhost:3333/signup">Sign Up</a>
 </div>
+
+<script>
+  
+  document.formRef.onsubmit = async e => {
+    e.preventDefault()
+    const form = e.target
+    const formData = new FormData(form)
+
+    const options = {
+      method: form.method,
+      body: new URLSearchParams(formData)
+    }
+
+    fetch(form.action, options)
+      .then(response => response.json())
+      .then(data => {
+        const { user, token } = data
+        localStorage.setItem('@LoginSystem:token', token)
+        localStorage.setItem('@LoginSystem:user', JSON.stringify(user))    
+      })
+  }
+</script>

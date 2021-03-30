@@ -44,8 +44,6 @@ class UsersController {
         password: hashedPassword
       })
 
-      await delete user.password
-
       return ok(response, user)
     } catch (err) {
       return serverError(response)
